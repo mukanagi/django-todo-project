@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "todo_list/base.html" %}
+
+{% block title %}
+    ToDo List App
+{% endblock title %}
+
+{% block body %}
+    <h1>ToDo List App</h1>
+    <ul>
+      <li><a href="{% url 'todo_list:list' %}">All Todo items</a></li>
+      <li><a href="{% url 'todo_list:done' %}">Done items</a></li>
+    </ul>
+    <h2>ToDos:</h2>
+    <ul>
+    {% include "todo_list/components/todo_items_list.html" %}
+    </ul>
+{% endblock body %}
