@@ -27,7 +27,7 @@ class ToDoDetailView(DetailView):
 
 class ToDoItemCreateView(CreateView):
     model = ToDoItem
-    fields = ("title", "description")
+    form_class = ToDoItemForm
 
 
 # Кастомное поведение
