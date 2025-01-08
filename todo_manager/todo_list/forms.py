@@ -15,3 +15,12 @@ class ToDoItemCreateForm(forms.ModelForm):
         }
 
         help_texts = {"description": "Enter commentaries"}
+
+
+class ToDoItemUpdateForm(forms.ModelForm):
+    class Meta(ToDoItemCreateForm.Meta):
+        fields = (
+            "title",
+            "description",
+            "done",
+        )
