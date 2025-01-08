@@ -4,7 +4,6 @@ from django.views.generic import (
     CreateView,
 )
 from .models import ToDoItem
-from django.urls import reverse
 from .forms import ToDoItemForm
 
 
