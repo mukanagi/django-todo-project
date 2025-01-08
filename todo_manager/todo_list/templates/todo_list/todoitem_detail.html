@@ -11,7 +11,12 @@
         <div>Done: <strong>{{object.done}}</strong></div>
         <div>Description: <strong>{{object.description}}</strong></div>
     </div>
-    <div>
-      <a href="{% url 'todo_list:update' pk=object.pk %}">Update ToDo Item</a>
-    </div>
+    <ul>
+      <li>
+        <a href="{% url 'todo_list:update' pk=object.pk %}">Update ToDo Item</a>
+      </li>
+      <li>
+        <a href="{% url 'todo_list:delete' pk=object.pk %}">Delete ToDo Item</a>
+      </li>
+    </ul>
 {% endblock body %}
