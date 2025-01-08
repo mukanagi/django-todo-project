@@ -1,4 +1,6 @@
+from django.urls import reverse_lazy
 from django.views.generic import (
+    DeleteView,
     ListView,
     DetailView,
     CreateView,
@@ -39,7 +41,13 @@ class ToDoItemUpdateView(UpdateView):
     form_class = ToDoItemUpdateForm
 
 
-# Кастомное поведение
+class ToDoItemDeleteView(DeleteView):
+    model = ToDoItem
+
+    success_url = reverse_lazy("todo_list:list")
+
+
+# Кастомное поведение пишется для каждого класса
 # def get_success_url(self):
 #     return reverse(
 #         viewname="todo_list:detail",
