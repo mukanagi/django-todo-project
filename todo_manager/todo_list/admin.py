@@ -3,7 +3,7 @@ from todo_list.models import ToDoItem
 
 
 @admin.register(ToDoItem)
-class ToDoItemAdmon(admin.ModelAdmin):
+class ToDoItemAdmin(admin.ModelAdmin):
     list_display = (
         "id",
         "title",
