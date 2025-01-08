@@ -2,9 +2,13 @@ from django.views.generic import (
     ListView,
     DetailView,
     CreateView,
+    UpdateView,
 )
 from .models import ToDoItem
-from .forms import ToDoItemCreateForm
+from .forms import (
+    ToDoItemCreateForm,
+    ToDoItemUpdateForm,
+)
 
 
 class ToDoIndexView(ListView):
@@ -27,6 +31,12 @@ class ToDoDetailView(DetailView):
 class ToDoItemCreateView(CreateView):
     model = ToDoItem
     form_class = ToDoItemCreateForm
+
+
+class ToDoItemUpdateView(UpdateView):
+    model = ToDoItem
+    template_name_suffix = "_update_form"
+    form_class = ToDoItemUpdateForm
 
 
 # Кастомное поведение
