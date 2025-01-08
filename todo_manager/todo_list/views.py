@@ -43,6 +43,7 @@ class ToDoItemUpdateView(UpdateView):
 
 class ToDoItemDeleteView(DeleteView):
     model = ToDoItem
+    template_name_suffix = "_confirm_delete"
 
     success_url = reverse_lazy("todo_list:list")
 
