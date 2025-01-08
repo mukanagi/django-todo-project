@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class ToDoItem(models.Model):
@@ -8,6 +9,12 @@ class ToDoItem(models.Model):
 
     title = models.CharField(max_length=250)
     done = models.BooleanField(default=False)
+
+    def get_absolute_url(self):
+        return reverse(
+            viewname="todo_list:detail",
+            kwargs={"pk": self.pk},
+        )
 
     def __str__(self):
         return self.title

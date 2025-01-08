@@ -1,8 +1,11 @@
 from django.views.generic import (
     ListView,
     DetailView,
+    CreateView,
 )
 from .models import ToDoItem
+from django.urls import reverse
+from .forms import ToDoItemForm
 
 
 class ToDoIndexView(ListView):
@@ -17,5 +20,19 @@ class ToDoListView(ListView):
 class ToDoListDoneView(ListView):
     queryset = ToDoItem.objects.filter(done=True).all()
 
+
 class ToDoDetailView(DetailView):
     model = ToDoItem
+
+
+class ToDoItemCreateView(CreateView):
+    model = ToDoItem
+    form_class = ToDoItemForm
+
+
+# Кастомное поведение
+# def get_success_url(self):
+#     return reverse(
+#         viewname="todo_list:detail",
+#         kwargs={"pk": self.object.pk},
+#         )
