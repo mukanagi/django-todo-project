@@ -4,7 +4,7 @@ from django.views.generic import (
     CreateView,
 )
 from .models import ToDoItem
-from .forms import ToDoItemForm
+from .forms import ToDoItemCreateForm
 
 
 class ToDoIndexView(ListView):
@@ -26,7 +26,7 @@ class ToDoDetailView(DetailView):
 
 class ToDoItemCreateView(CreateView):
     model = ToDoItem
-    form_class = ToDoItemForm
+    form_class = ToDoItemCreateForm
 
 
 # Кастомное поведение
