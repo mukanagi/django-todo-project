@@ -4,5 +4,10 @@ from todo_list.models import ToDoItem
 
 @admin.register(ToDoItem)
 class ToDoItemAdmon(admin.ModelAdmin):
-    list_display = "id", "title", "done"
+    list_display = (
+        "id",
+        "title",
+        "done",
+        "description",
+    )
     list_display_links = ("id", "title")
